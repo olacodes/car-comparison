@@ -1,0 +1,29 @@
+
+server:
+  port: 8080
+spring:
+  application:
+    name: car-comparison
+  profiles.active: default
+  jpa:
+    hibernate:
+      ddl-auto: update  # Set to 'create' if running the app for the first time
+    show-sql: true
+
+  main:
+    banner-mode: off
+  datasource:
+    url: ${db.url}
+    driver-class-name: org.postgresql.Driver
+    username: ${db.username}
+    password: ${db.password}
+
+db:
+  host: localhost
+  name: car-comparison
+  username: postgres
+  password: password
+  url: "jdbc:postgresql://${db.host}:5432/${db.name}"
+
+http-config:
+  connection-timeout: 30000
